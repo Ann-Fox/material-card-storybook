@@ -2,7 +2,8 @@
   <div class="card">
     <div class="media" :style="mediaBg" v-if="mediaHref"></div>
     <h4 class="title">{{ title }}</h4>
-    <p class="secondary-text">{{ subText}}</p>
+    <small class="secondary-text">{{ subText}}</small>
+    <p class="supporting-tex">{{supportingText}}</p>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ export default {
     title: String,
     subText: String,
     mediaHref: String,
+    supportingText: String,
   },
   computed: {
     mediaBg() {
@@ -42,5 +44,9 @@ export default {
 
 .media {
   height: 150px;
+}
+
+.title {
+  margin-bottom: 0;
 }
 </style>

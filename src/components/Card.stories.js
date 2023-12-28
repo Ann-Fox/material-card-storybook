@@ -5,11 +5,12 @@ export default {
     component: Card,
     argTypes: {
         title: 'String',
-        subText: 'String'
+        subText: 'String',
+        supportingText: 'String'
     }
 };
 
-const Template = (agrs) => ({
+const Template = (args) => ({
     components: { Card },
     setup() {
         return { args }
@@ -17,10 +18,25 @@ const Template = (agrs) => ({
     template: '<Card v-bind="args" />'
 })
 export const Primary = Template.bind({})
-Primary.args = {title: 'Example title', subText: 'Secondary text'}
+Primary.args = {
+    title: 'Example title',
+    subText: 'Secondary text'
+}
 
 export const Secondary = Template.bind({})
-Secondary.args = {title: 'Example title', subText: 'Media text', mediaHref: 'favicon.ico'}
+Secondary.args = {
+    title: 'Example title',
+    subText: 'Media text',
+    mediaHref: 'favicon.ico'
+}
+
+export const Third = Template.bind({})
+Third.args = {
+    title: 'Third title',
+    subText: 'Media Third text',
+    mediaHref: 'placeholder.svg',
+    supportingText: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem'
+}
 
 // import Card from "./Card.vue";
 //
