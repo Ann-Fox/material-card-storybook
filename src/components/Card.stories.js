@@ -6,7 +6,8 @@ export default {
     argTypes: {
         title: 'String',
         subText: 'String',
-        supportingText: 'String'
+        supportingText: 'String',
+        buttonText: 'String'
     }
 };
 
@@ -36,6 +37,15 @@ Third.args = {
     subText: 'Media Third text',
     mediaHref: 'placeholder.svg',
     supportingText: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem'
+}
+
+export const Fourth = Template.bind({})
+Fourth.args = {
+    title: 'Fourth title',
+    subText: 'Media Fourth text',
+    mediaHref: 'placeholder.svg',
+    supportingText: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem',
+    buttonText: 'go'
 }
 
 // import Card from "./Card.vue";

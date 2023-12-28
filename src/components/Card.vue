@@ -4,6 +4,9 @@
     <h4 class="title">{{ title }}</h4>
     <small class="secondary-text">{{ subText}}</small>
     <p class="supporting-tex">{{supportingText}}</p>
+    <div v-if="buttonText">
+      <a class="material-button">{{buttonText}}</a>
+    </div>
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
     subText: String,
     mediaHref: String,
     supportingText: String,
-  },
+    buttonText: String},
   computed: {
     mediaBg() {
       return {
@@ -48,5 +51,19 @@ export default {
 
 .title {
   margin-bottom: 0;
+}
+
+.material-button {
+  color: purple;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: .2rem;
+
+  transition: .3s all linear;
+}
+
+.material-button:hover {
+  background-color: rgb(106,20,185,0.082);
 }
 </style>
