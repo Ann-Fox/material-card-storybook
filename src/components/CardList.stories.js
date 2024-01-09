@@ -17,6 +17,12 @@ export default {
         setup() {
             return { args };
         },
+        argTypes: {
+            variant: {
+                options: ['primary', 'secondary'],
+                control: { type: 'radio' },
+            },
+        },
         template: '<CardList v-bind="args" />',
     }),
     args: {
@@ -28,8 +34,8 @@ export default {
             { id: 5, title: 'Example title', subText: 'Подпись 5' },
             { id: 6, title: 'Example title', subText: 'Подпись 6' },
             { id: 7, title: 'Example title', subText: 'Подпись 7' },
-            { id: 8, title: 'Example title', subText: 'Подпись 7' },
-            { id: 9, title: 'Example title', subText: 'Подпись 7' },
+            { id: 8, title: 'Example title', subText: 'Подпись 8' },
+            { id: 9, title: 'Example title', subText: 'Подпись 9' },
 
         ]
     },

@@ -58,6 +58,9 @@ export default {
   font-family: 'Quicksand', sans-serif;
 }
 
+img {
+  max-width: 100%;
+}
 .title, .secondary-text {
   margin: .5rem auto .5rem auto;
 }

@@ -7,7 +7,11 @@ export default {
         title: 'String',
         subText: 'String',
         supportingText: 'String',
-        buttonText: 'String'
+        buttonText: 'String',
+        onClick: { action: 'clicked' },
+        // color: {
+        //     control: 'color',
+        // }
     }
 };
 
@@ -21,14 +25,17 @@ const Template = (args) => ({
 export const Primary = Template.bind({})
 Primary.args = {
     title: 'Example title',
-    subText: 'Secondary text'
+    subText: 'Secondary text',
+    // color: '#fff222'
 }
 
 export const Secondary = Template.bind({})
 Secondary.args = {
     title: 'Example title',
     subText: 'Media text',
-    mediaHref: 'favicon.ico'
+    mediaHref: 'favicon.ico',
+    buttonText: 'just do it'
+
 }
 
 export const Third = Template.bind({})

@@ -1,18 +1,20 @@
 <template>
   <div class="card">
     <div class="media" :style="mediaBg" v-if="mediaHref"></div>
-    <h4 class="title">{{ title }}</h4>
-    <small class="secondary-text">{{ subText}}</small>
-    <p class="supporting-tex">{{supportingText}}</p>
+      <h4 class="title">{{ title }}</h4>
+      <small class="secondary-text">{{ subText}}</small>
+      <p class="supporting-tex">{{supportingText}}</p>
     <div v-if="buttonText">
-      <a class="material-button">{{buttonText}}</a>
+      <Button class="material-button">{{buttonText}}</Button>
     </div>
   </div>
 </template>
 
 <script>
+import Button from "@/stories/Button.vue";
 export default {
   name: 'Card',
+  components: {Button},
   props: {
     title: String,
     subText: String,
@@ -22,7 +24,8 @@ export default {
   computed: {
     mediaBg() {
       return {
-        backgroundImage: `url(${this.mediaHref})`
+        // backgroundColor: this.color || '#fff000',
+        backgroundImage: `url(${this.mediaHref})'`
       }
     }
   }
