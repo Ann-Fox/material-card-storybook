@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :style="backgroundColor">
+  <button :class="classes" :style="style">
     <img v-if="icon" :src="require(`icons/${icon}.svg`)" alt="icon" >
     {{label}}
   </button>
@@ -44,7 +44,9 @@ export default {
 <style scoped>
 .btn {
   width: 100px;
+  padding: 10px;
   border: none;
+  border-radius: 10px 100px / 120px;
   font-size: 20px;
 }
 
