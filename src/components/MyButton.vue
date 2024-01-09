@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" :style="style">
+  <button :class="doc" :style="style">
     <img v-if="icon" :src="require(`icons/${icon}.svg`)" alt="icon" >
     {{label}}
   </button>
@@ -29,7 +29,7 @@ export default {
   setup(props) {
     props = reactive(props)
     return {
-      classes: computed(()=> ({
+      doc: computed(()=> ({
         'btn btn-primary': props.filled,
         'btn btn-primary-primary': !props.filled,
       })),
@@ -43,10 +43,10 @@ export default {
 
 <style scoped>
 .btn {
-  width: 100px;
+  min-width: 100px;
   padding: 10px;
   border: none;
-  border-radius: 10px 100px / 120px;
+  border-radius: 10px;
   font-size: 20px;
 }
 
