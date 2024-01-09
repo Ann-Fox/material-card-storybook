@@ -23,11 +23,13 @@ export default {
         cards: [
             { id: 1, title: 'Example title', subText: 'Подпись 1', mediaHref: 'placeholder.svg' },
             { id: 2, title: 'Example title', subText: 'Подпись 2', supportingText: 'Lorem Lorem Lorem Lorem Lorem Lorem Lorem Lorem' },
-            { id: 3, title: 'Example title', subText: 'Подпись 3' },
-            { id: 4, title: 'Example title', subText: 'Подпись 4' },
+            { id: 3, title: 'Example title', subText: 'Подпись 3', buttonText: 'go' },
+            { id: 4, title: 'Example title', subText: 'Подпись 4', mediaHref: 'favicon.ico' },
             { id: 5, title: 'Example title', subText: 'Подпись 5' },
             { id: 6, title: 'Example title', subText: 'Подпись 6' },
             { id: 7, title: 'Example title', subText: 'Подпись 7' },
+            { id: 8, title: 'Example title', subText: 'Подпись 7' },
+            { id: 9, title: 'Example title', subText: 'Подпись 7' },
 
         ]
     },
