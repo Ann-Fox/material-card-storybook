@@ -1,39 +1,41 @@
-<script setup>
+<script>
 import {linkTo} from '@storybook/addon-links';
-import {ref} from "vue";
-// Composition API
-const loading = ref(false);
-
-// Options API
-// export default {
-//   data() {
-//     return {
-//       loading: false
-//     }
-//   },
+// import {ref} from "vue";
 
 // Composition API
-let link = () => {
-  linkTo('Card', 'Primary')
-}
-
-let goToNext = () => {
-  loading.value = true;
-  setTimeout(() => {
-    link();
-  }, 2000);}
+// const loading = ref(false);
 
 // Options API
-//   methods: {
-//     link: linkTo('Card', 'Primary'),
-//     goToNext() {
-//       this.loading = true;
-//       setTimeout(() => {
-//         this.link();
-//       }, 2000);
-//     }
-//   }
+export default {
+  data() {
+    return {
+      loading: false
+    }
+  },
+
+// Composition API
+// function link() {
+//   linkTo('Card', 'Primary')
 // }
+//
+// function goToNext() {
+//   loading.value = true;
+//   setTimeout(() => {
+//     link();
+//   }, 2000);
+// }
+
+// Options API
+  methods: {
+    link: linkTo('Card', 'Primary'),
+    goToNext() {
+      this.loading = true;
+      setTimeout(() => {
+        this.link();
+      }, 2000);
+    }
+  }
+}
 </script>
 
 <template>
@@ -49,7 +51,7 @@ let goToNext = () => {
       <label for="password">password</label>
       <input id="password" type="password">
     </div>
-    <button role="button" class="submit" @click="goToNext()">
+    <button role="button" class="submit" @click="goToNext">
       <text v-if="!loading">Submit</text>
       <text v-else>Loading...</text>
     </button>
