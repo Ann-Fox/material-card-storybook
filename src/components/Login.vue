@@ -1,23 +1,39 @@
-<script>
+<script setup>
 import {linkTo} from '@storybook/addon-links';
+import {ref} from "vue";
+// Composition API
+const loading = ref(false);
 
-export default {
-  data() {
-    return {
-      loading: false
-    }
-  },
+// Options API
+// export default {
+//   data() {
+//     return {
+//       loading: false
+//     }
+//   },
 
-  methods: {
-    link: linkTo('Card', 'Primary'),
-    goToNext() {
-      this.loading = true;
-      setTimeout(() => {
-        this.link();
-      }, 2000);
-    }
-  }
+// Composition API
+let link = () => {
+  linkTo('Card', 'Primary')
 }
+
+let goToNext = () => {
+  loading.value = true;
+  setTimeout(() => {
+    link();
+  }, 2000);}
+
+// Options API
+//   methods: {
+//     link: linkTo('Card', 'Primary'),
+//     goToNext() {
+//       this.loading = true;
+//       setTimeout(() => {
+//         this.link();
+//       }, 2000);
+//     }
+//   }
+// }
 </script>
 
 <template>
