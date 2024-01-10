@@ -10,7 +10,9 @@ export default {
   data() {
     return {
       loading: false,
-      checkedService: false
+      checkedService: true,
+      emailUser: '',
+      passwordUser: ''
     }
   },
 
@@ -28,7 +30,7 @@ export default {
 
 // Options API
   methods: {
-    // link: linkTo('Card', 'Primary'),
+    link: linkTo('Card', 'Primary'),
     goToNext() {
       this.loading = true;
       setTimeout(() => {
@@ -46,22 +48,22 @@ export default {
     </div>
     <div class="login-input">
       <label for="email">email</label>
-      <input id="email" type="email">
+      <input id="email" type="email" v-model="emailUser">
     </div>
     <div class="login-input">
       <label for="password">password</label>
-      <input id="password" type="password">
+      <input id="password" type="password" v-model="passwordUser">
     </div>
     <div>
-      <input type="checkbox" id="service" @click="checkedService = !checkedService"/>
-      <label class="checkbox" for="service">I have reade the terms of service</label>
+      <input type="checkbox" id="serviceInput" @click="checkedService = !checkedService" data-testid="checkbox"/>
+      <label class="checkbox" for="serviceInput">I have reade the terms of service</label>
     </div>
     <button role="button" class="submit" @click="goToNext">
       <text v-if="!loading">Submit</text>
       <text v-else>Loading...</text>
     </button>
     <div>
-      <p class="error" v-show="!checkedService" >
+      <p class="error" v-show="checkedService && passwordUser && emailUser" >
         You must accept the terms of service to continue.
       </p>
     </div>

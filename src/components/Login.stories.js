@@ -29,6 +29,10 @@ Primary.play = async () => {
         selector: 'button'
     })
 
+    const checkboxInput = screen.getByTestId('checkbox', {
+        selector: 'input'
+    })
+
     await sleep(1000)
 
     await userEvent.type(emailInput, 'test@x.com', {
@@ -43,5 +47,12 @@ Primary.play = async () => {
 
     await sleep(1000)
 
-    await userEvent.click(submitBtn);
+    await userEvent.click(checkboxInput);
+
+
+    await sleep(1000)
+
+        await userEvent.click(submitBtn);
+
+
 }
