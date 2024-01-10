@@ -1,5 +1,23 @@
-<script setup>
+<script>
+import {linkTo} from '@storybook/addon-links';
 
+export default {
+  data() {
+    return {
+      loading: false
+    }
+  },
+
+  methods: {
+    link: linkTo('Card', 'Primary'),
+    goToNext() {
+      this.loading = true;
+      setTimeout(() => {
+        this.link();
+      }, 2000);
+    }
+  }
+}
 </script>
 
 <template>
@@ -15,8 +33,9 @@
       <label for="password">password</label>
       <input id="password" type="password">
     </div>
-    <button role="button" class="submit">
-      Submit
+    <button role="button" class="submit" @click="goToNext()">
+      <text v-if="!loading">Submit</text>
+      <text v-else>Loading...</text>
     </button>
   </div>
 </template>
