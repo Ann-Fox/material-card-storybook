@@ -14,6 +14,9 @@ const Template = (args) => ({
         template: '<Login v-bind="args" />',
     })
 
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+}
 export const Primary = Template.bind({})
 Primary.play = async () => {
     const passwordInput = screen.getByLabelText('password', {
@@ -23,13 +26,22 @@ Primary.play = async () => {
         selector: 'input'
     })
     const submitBtn = screen.getByRole('button', {
-        selector: 'input'
+        selector: 'button'
     })
+
+    await sleep(1000)
+
     await userEvent.type(emailInput, 'test@x.com', {
         delay: 200
     })
+
+    await sleep(1000)
+
     await userEvent.type(passwordInput, 'Example', {
         delay: 200
     })
+
+    await sleep(1000)
+
     await userEvent.click(submitBtn);
 }
