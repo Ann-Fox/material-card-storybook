@@ -27,7 +27,7 @@ export default {
 
 // Options API
   methods: {
-    link: linkTo('Card', 'Primary'),
+    // link: linkTo('Card', 'Primary'),
     goToNext() {
       this.loading = true;
       setTimeout(() => {
@@ -51,10 +51,19 @@ export default {
       <label for="password">password</label>
       <input id="password" type="password">
     </div>
+    <div>
+      <input type="checkbox" id="service" name="scales"/>
+      <label class="checkbox" for="service">I have reade the terms of service</label>
+    </div>
     <button role="button" class="submit" @click="goToNext">
       <text v-if="!loading">Submit</text>
       <text v-else>Loading...</text>
     </button>
+    <div>
+      <p class="error">
+        You must accept the terms of service to continue.
+      </p>
+    </div>
   </div>
 </template>
 
@@ -115,5 +124,13 @@ h3 {
 
 .submit:hover {
   background-color: rgb(99, 22, 172);
+}
+
+.checkbox {
+  text-transform: none;
+}
+
+.error {
+  color: #da0d33;
 }
 </style>
