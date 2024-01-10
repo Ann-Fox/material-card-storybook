@@ -1,24 +1,35 @@
+import {screen, userEvent} from "@storybook/test";
 import Login from './Login.vue';
 
-//👇 This default export determines where your story goes in the story list
 export default {
+    title: 'Login',
     component: Login,
 };
 
-/*
- *👇 Render functions are a framework specific feature to allow you control on how the component renders.
- * See https://storybook.js.org/docs/api/csf
- * to learn how to use render functions.
- */
-export const FirstStory = {
-    render: (args) => ({
+const Template = (args) => ({
         components: { Login },
         setup() {
             return { args };
         },
         template: '<Login v-bind="args" />',
-    }),
-    args: {
-        //👇 The args you need here will depend on your component
-    },
-};
+    })
+
+export const Primary = Template.bind({})
+Primary.play = async () => {
+    const passwordInput = screen.getByLabelText('password', {
+        selector: 'input'
+    })
+    const emailInput = screen.getByLabelText('email', {
+        selector: 'input'
+    })
+    const submitBtn = screen.getByRole('button', {
+        selector: 'input'
+    })
+    await userEvent.type(emailInput, 'test@x.com', {
+        delay: 200
+    })
+    await userEvent.type(passwordInput, 'Example', {
+        delay: 200
+    })
+    await userEvent.click(submitBtn);
+}
