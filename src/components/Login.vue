@@ -9,7 +9,8 @@ import {linkTo} from '@storybook/addon-links';
 export default {
   data() {
     return {
-      loading: false
+      loading: false,
+      checkedService: false
     }
   },
 
@@ -52,7 +53,7 @@ export default {
       <input id="password" type="password">
     </div>
     <div>
-      <input type="checkbox" id="service" name="scales"/>
+      <input type="checkbox" id="service" @click="checkedService = !checkedService"/>
       <label class="checkbox" for="service">I have reade the terms of service</label>
     </div>
     <button role="button" class="submit" @click="goToNext">
@@ -60,7 +61,7 @@ export default {
       <text v-else>Loading...</text>
     </button>
     <div>
-      <p class="error">
+      <p class="error" v-show="!checkedService" >
         You must accept the terms of service to continue.
       </p>
     </div>
