@@ -1,90 +1,43 @@
 <template>
-  <!--  <button :class="doc" :style="style" @click="clickFun">-->
-  <button :style="buttonStyle" @click="clickFun">
-
-    <img v-if="icon" :src="require(`icons/${icon}.svg`)" alt="icon">
-    {{ label }}
+  <button :class="doc" :style="style">
+    <img v-if="icon" :src="require(`icons/${icon}.svg`)" alt="icon" >
+    {{label}}
   </button>
-  <router-link :to="{name: 'login'}"><p>Зарегистрироваться</p></router-link>
-<!--  <div data-testid="location-display">{{ $route.fullPath }}</div>-->
 </template>
 
 <script>
-// import {computed, reactive} from "vue";
-
-// import HomeView from "@/views/HomeView.vue";
+import {computed, reactive} from "vue";
 
 export default {
-  // components: {HomeView},
   props: {
-    /** My button */
     label: {
       type: String,
       require: true,
     },
-    /** Заливка */
-    // filled: {
-    //   type: Boolean,
-    //   default: false,
-    // },
+    filled: {
+      type: Boolean,
+      default: false,
+    },
     icon: {
       type: String,
       default: '',
     },
-    // backgroundColor: {
-    //   type: String
-    // }
+    backgroundColor: {
+      type: String
+    }
   },
-  data() {
+  setup(props) {
+    props = reactive(props)
     return {
-      buttonStyle: {}
+      doc: computed(()=> ({
+        'btn btn-primary': props.filled,
+        'btn btn-primary-primary': !props.filled,
+      })),
+      style: computed(()=>({
+        backgroundColor: props.backgroundColor
+      })),
     }
-  },
-  methods: {
-    clickFun() {
-      this.buttonStyle = {backgroundColor: "rgb(245, 15, 103)"}
-    }
-  },
-  // computed: {
-  //   style: {
-  //     get(){
-  //       this.buttonStyle = {backgroundColor: this.backgroundColor}
-  //       return {backgroundColor: this.backgroundColor}
-  //     },
-  //     set(newValue){
-  //       console.log(newValue)
-  //       return {backgroundColor: newValue}
-  //     },
-  //   },
-  //   // doc( ){
-  //   //   return {
-  //   //     'btn btn-primary': this.filled,
-  //   //     'btn btn-primary-primary': !this.filled,
-  //   //   }
-  //
-  //   // },
-  // },
-//   setup(props) {
-//     // const clickFun = () => {
-//     //   console.log("что-угодно")
-//     // }
-//     props = reactive(props)
-//     return {
-//       doc: computed(()=> ({
-//         'btn btn-primary': props.filled,
-//         'btn btn-primary-primary': !props.filled,
-//       })),
-//       style: computed({
-//         get(){
-//           return {backgroundColor: props.backgroundColor}
-//         },
-//         set(newValue){
-//           return {backgroundColor: newValue}
-//         },
-//         // backgroundColor: props.backgroundColor
-//       }),
-//     }
-//   }
+  }
 }
 </script>
 
