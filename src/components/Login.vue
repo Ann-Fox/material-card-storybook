@@ -1,20 +1,25 @@
-<script>
+<script setup>
 import {linkTo} from '@storybook/addon-links';
+import {useRoute} from "vue-router";
 // import {ref} from "vue";
 
 // Composition API
 // const loading = ref(false);
 
 // Options API
-export default {
-  data() {
-    return {
-      loading: false,
-      checkedService: true,
-      emailUser: '',
-      passwordUser: ''
-    }
-  },
+// export default {
+//   data() {
+//     return {
+//       loading: false,
+//       checkedService: true,
+//       emailUser: '',
+//       passwordUser: ''
+//     }
+//   },
+const loading = false;
+const checkedService = true;
+const emailUser = '';
+const passwordUser = '';
 
 // Composition API
 // function link() {
@@ -29,20 +34,27 @@ export default {
 // }
 
 // Options API
-  methods: {
-    link: linkTo('Card', 'Primary'),
-    goToNext() {
-      this.loading = true;
-      setTimeout(() => {
-        this.link();
-      }, 2000);
-    }
-  }
-}
+//   methods: {
+//     link: linkTo('Card', 'Primary'),
+//     goToNext() {
+//       this.loading = true;
+//       setTimeout(() => {
+//         this.link();
+//       }, 2000);
+//     }
+//   },
+
+    const route = useRoute()
+
+
 </script>
 
 <template>
+
   <div class="login-wrapper">
+
+    <div data-testid="location-display">{{ route.fullPath }}</div>
+
     <div class="title">
       <h3>Login</h3>
     </div>
