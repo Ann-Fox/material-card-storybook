@@ -1,8 +1,9 @@
 import CardList from "./CardList.vue";
-
+/** Card component with title, text and button */
 export default {
     title: 'List/CardList',
     component: CardList,
+    tags: ['autodocs']
     // argTypes: {
     //     title: 'String',
     //     subText: 'String',
